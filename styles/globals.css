@@ -5,6 +5,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+h3,p {
+  margin: 0;
+}
 
 a {
   color: inherit;
@@ -15,12 +18,367 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
+
+body {
     color: white;
     background: black;
+}
+.hide {
+  z-index: -200;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.align-center {
+  align-items: center;
+}
+
+/* ########## CAROUSEL ###############################################*/
+
+  .posterImage__title {
+    font-size: 3rem;
+    font-weight: bolder;
+    text-align: left;
+
+    margin-bottom: 1rem;
   }
+
+  .posterImage__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 60%;
+  }
+
+  .posterImage__release, 
+  .posterIMage__rating {
+    font-size: 2rem;
+  }
+
+  .posterImage__release {
+    margin-bottom: .5rem;
+  }
+
+  .posterImage__description {
+    text-align: left;
+    font-style: italic;
+    padding-bottom: 4rem;
+  }
+
+/* ############################# CAROUSEL ######################### */
+
+/* ############################# SEARCH BAR START ################################### */
+
+.search-results-container {
+  position: absolute;
+  list-style: none;
+  top: 100;
+  left: 0;
+  background-color: rgb(22, 22, 22);
+  border-radius: .5rem;
+  overflow: hidden;
+
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.search-item {  
+  padding: 1rem;
+  background-color: rgb(22, 22, 22);
+  transition: background-color 350ms ease-out;
+}
+.search-item:hover:not(.item-selected) {
+ background-color: rgba(106, 106, 106, 0.197);
+}
+
+.item-selected {
+  background-color: rgba(106, 106, 106, 0.586);
+  z-index: 100;
+}
+
+/* ############################# SEARCH BAR END #####################################*/
+
+.movie-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1500px;
+  gap: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  padding: 0 .5rem 4rem .5rem;
+
+}
+
+.relative {
+  position: relative;
+}
+
+.w-100 {
+  width: 100%;
+}
+.w-70 {
+  width: 70%;
+}
+
+.w-30 {
+  width: 30%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.font-s {
+  font-size: 1rem;
+}
+
+.mt-1 {
+  margin-top: .25rem;
+}
+.mt-2 {
+  margin-top: .5rem;
+}
+.mt-5 {
+  margin-top: 3rem;
+}
+.btn {
+  color: white;
+  background-color: transparent;
+  transition: background-color 400ms ease-out;
+  overflow: hidden;
+  font-weight: bold;
+
+  border-radius: 2rem;
+  border: 1px solid white;
+  cursor: pointer;
+  padding: .5rem;
+}
+.btn:hover .btn-animation {
+  width: 100%;
+}
+.d-flex {
+  display: flex;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.gap-1 {
+  gap: 1rem;
+}
+
+.btn-animation {
+  position: absolute;
+  background-color: rgb(66, 66, 66);
+  transition: width 350ms ease-out;
+  z-index: -1;
+
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+}
+
+
+/* ##################################### NAVBAR START ##################################################### */
+
+.nav__items { 
+  display: flex;
+  gap: 1rem;
+}
+
+.nav__menu {
+  font-size: 1.5rem;
+  z-index: 1;
+  display: none;
+}
+
+.nav__item {
+  cursor: pointer;
+  padding: .4rem 0;
+  border-bottom: 1px solid rgb(22, 22, 22);
+}
+.nav__item:hover {
+  border-bottom: 1px solid white;
+}
+
+@media screen and (max-width:992px) {
+  .posterImage__title {
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+
+  .posterImage__overlay {
+    max-width: 80%;
+  }
+
+  .posterImage__release, 
+  .posterIMage__rating {
+    font-size: 1.4rem;
+  }
+
+  .posterImage__release {
+    margin-bottom: .5rem;
+  }
+
+  .posterImage__description {
+    font-size: .75rem;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .nav__menu {
+    display: block;
+  }
+  .nav-container {
+    display: none;
+  }
+
+  .show {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.637);
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+  }
+  .nav__menu {
+    z-index: 10;
+  }
+
+  .nav__items {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgb(22, 22, 22);
+    z-index: 1;
+
+    padding: 4rem 2rem;
+    width: 50%;
+    height: 100vh;
+  }
+  .nav__item {
+    font-size: 1.5rem;
+  }
+
+  .w-30 {
+    display: none;
+  }
+  .w-70 {
+    width: 100%;
+  }
+
+
+  .posterImage__title {
+    font-size: 1.4rem;
+    font-weight: bolder;
+  }
+
+  .posterImage__overlay {
+    max-width: 80%;
+  }
+
+  .posterImage__release, 
+  .posterIMage__rating {
+    font-size: 1rem;
+  }
+
+  .posterImage__release {
+    margin-bottom: .5rem;
+  }
+
+  .posterImage__description {
+    font-size: .6rem;
+    padding-bottom: 2rem;
+  }
+  .movie-container {
+    gap: .5rem;
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width:568px) {
+  .nav__items {
+    width: 70%;
+  }
+
+  .btn {
+    font-size: .6rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+
+  .posterImage__title {
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-bottom: .4rem;
+  }
+
+  .posterImage__overlay {
+    max-width: 100%;
+  }
+
+  .posterImage__release, 
+  .posterIMage__rating {
+    font-size: .75rem;
+  }
+
+  .posterImage__release {
+    margin-bottom: .5rem;
+  }
+
+  .posterImage__description {
+    font-size: .5rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width:376px) {
+ 
+  .posterImage__title {
+    font-size: .6rem;
+    font-weight: bolder;
+    margin-bottom: .2rem;
+  }
+
+  .posterImage__overlay {
+    max-width: 100%;
+  }
+
+  .posterImage__release, 
+  .posterIMage__rating {
+    font-size: .6rem;
+  }
+
+  .posterImage__release {
+    margin-bottom: .2rem;
+  }
+
+  .posterImage__description {
+    font-size: .4rem;
+    padding-bottom: 2rem;
+  }
+  
+} 
+
+/* ###################################### NAVBAR END ##################################################################3 */
+
+.cat-title {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 2rem;
+  margin-top: 1rem;
+  padding: .3rem;
 }

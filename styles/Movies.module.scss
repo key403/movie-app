@@ -1,0 +1,71 @@
+
+
+.movie {
+  width: 300px;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgb(99, 99, 99);
+  border-radius: 10px;
+  transition: transform 0.3s;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+
+  &:hover .movie__info {
+    opacity: 1;
+  }
+}
+
+.movie__info {
+  position: absolute;
+  bottom: 0;
+  padding: 0 1rem 1rem 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.movie__title {
+  font-weight: 900;
+  margin-bottom: 0.4rem;
+}
+
+.movie__rating {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  font-size: .75rem;
+}
+
+.movie__desc {
+  font-size: .75rem;
+  font-style: italic;
+}
+
+@media screen and (max-width:992px) {
+  .movie {
+    width: 200px;
+  }
+  .movie__info {
+    padding: 0 .5rem .5rem .5rem;
+  }
+}
+
+@media screen and (max-width:576px) {
+  .movie {
+    width: 125px;
+  }
+}
